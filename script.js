@@ -1,12 +1,7 @@
-const myLibrary = [];
-
-
-// book should have name, author name, pages total, pages read, completed
-function Book(name, author) {
-    
-}
-
-
-function addBookToLibrary() {
-
-}
+const myLibrary = (function() {
+    const books = []
+    // event listeners
+    function addToLibrary() {}
+    function removeFromLibrary(){}
+    function renderLibrary(){}
+})()
