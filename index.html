@@ -1,47 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@200;400;800&family=Martian+Mono:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <title>Library</title>
-</head>
-<body>
-    <main class="library">
-        <div class="header">
-            <h1>library</h1>
-            <p>Your collection of books, movies and TV shows.</p>
-        </div>
-        <div class="books-section">
-            <div class="book">
-                <img src="book1.jpg" alt="" class="book-img">
-                <h2 class="book-name">A Thousand Splendid suns</h2>
-                <p class="book-author">By Khaled hosseini</p>
-                <div class="book-buttons">
-                    <button class="status-btn">Read</button>
-                    <button class="del-btn">Remove</button>
-                </div>
-            </div>
-            <div class="add-book">
-                <button class="plus-btn">+</button>
-            </div>
-            <form class="input-container">
-                <label for="book-name">Book Name</label>
-                <input type="text" id="name" name="book-name">
-                <label for="author-name">Author Name</label>
-                <input type="text" id="author-name" name="author-name">
-                <select id="dropdown">
-                    <option value="" disabled selected>Select an option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                </select>
-                <button>Submit</button>
-            </form>
-        </div>
-    </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
