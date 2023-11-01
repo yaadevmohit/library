@@ -1,42 +1,126 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: auto;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.books-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.input-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-content: center;
+  border: solid var(--cool-red);
+  /* padding-inline: 1rem; */
+  padding: 0;
+  background-color: var(--like-skyblue);
+  min-height: 20rem;
+  font-family: "BioRhyme";
+  border-radius: 8px;
+  min-width: 14rem;
+}
+
+input, select, button {
+  font-family: "BioRhyme", serif;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.input-container > button.plus-button {
+  border: none;
+  font-size: 14rem;
+  padding: 0;
+  margin: 0;
+  color: var(--cool-red);
+  font-weight: 600;
+  /* aspect-ratio: 1; */
+  /* height: 16rem; */
+}
+
+.input-container > input {
+  background-color: transparent;
+  border: none;
+  border-bottom: solid thin var(--cool-red);
+  font-size: 1.2rem;
+  margin: 0;
+  margin-inline: 1rem;
+  outline: none;
+  transition: all 0.1s ease;
+  margin-block: 1rem;
+}
+
+.input-container > input:focus {
+  border: none;
+  background-color: transparent;
+  border-bottom: solid var(--cool-red);
+}
+
+.input-container > select {
+  margin: 0;
+  border: solid thin var(--cool-red);
+  background-color: transparent;
+  font-size: 1.2rem;
+  width: 7rem;
+  align-self: center;
+}
+
+.input-container > select > option{
+  background-color: transparent;
+}
+
+button {
+  background-color: transparent;
+  font-size: 1.5rem;
+  border: dotted var(--cool-red);
+  margin-block: 1.5rem;
+  /* width: 8rem; */
+  align-self: center;
+  padding: 0;
+  padding-inline: 1rem;
+  transition: border-style 0.3s ease;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.btn-container > button.add-btn {
+  margin-bottom: 0.2rem;
+  color: #264854ff;
+}
+
+.btn-container > button.add-btn:hover {
+  border-style: solid;
+  animation: borderTransition 0.2s 1;
+}
+
+
+button.cancel-btn {
+  font-size: 1rem;
+  margin: 0;
+  background-color: var(--cool-red);
+  color: white;
+  padding: 0;
+  padding-block: 0.2rem;
+  padding-inline: 0.4rem;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes borderTransition {
+  0% {
+    border-style: dotted;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    border-style: dashed;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  75%, 100% {
+    border-style: solid;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
