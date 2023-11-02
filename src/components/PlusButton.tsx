@@ -11,8 +11,9 @@ const PlusButton = () => {
         ? 
         <AddBookForm /> 
         :
-        <div className="input-container">
+        <div className="input-container plus">
             <button className="plus-button" onClick={handleClick}>+</button>
+            <span className="plus-btn-info">Add an item</span>
         </div>
     )
 }

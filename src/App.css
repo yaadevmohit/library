@@ -4,26 +4,49 @@
   text-align: center;
 }
 
-.books-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+.main-heading {
+  color: var(--cool-red);
+  font-size: 3rem;
 }
 
+.abt-heading {
+  color: var(--cool-red);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.books-section {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  justify-content: center;
+  
+  margin-inline: 1rem;
+}
+.plus-btn-info {
+  margin-top: 0;
+  color: var(--cool-red);
+  font-weight: 600;
+  font-size: 1.4rem;
+}
 .input-container {
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-content: center;
   border: solid var(--cool-red);
-  /* padding-inline: 1rem; */
   padding: 0;
   background-color: var(--like-skyblue);
-  min-height: 20rem;
-  font-family: "BioRhyme";
+  min-height: 24rem;
   border-radius: 8px;
-  min-width: 14rem;
+  /* min-width: 20rem; */
 }
+
+.input-container.plus {
+  background-color: transparent;
+  border: none;
+}
+
 
 input, select, button {
   font-family: "BioRhyme", serif;
@@ -34,12 +57,9 @@ input, select, button {
 .input-container > button.plus-button {
   border: none;
   font-size: 14rem;
-  padding: 0;
   margin: 0;
   color: var(--cool-red);
-  font-weight: 600;
-  /* aspect-ratio: 1; */
-  /* height: 16rem; */
+  font-weight: 800;
 }
 
 .input-container > input {
@@ -88,8 +108,9 @@ button {
 }
 
 .btn-container > button.add-btn {
-  margin-bottom: 0.2rem;
+  /* margin-bottom: 1rem; */
   color: #264854ff;
+  margin: 0;
 }
 
 .btn-container > button.add-btn:hover {
@@ -106,11 +127,14 @@ button.cancel-btn {
   padding: 0;
   padding-block: 0.2rem;
   padding-inline: 0.4rem;
+  margin-top: 1rem;
 }
 
 .btn-container {
   display: flex;
+  margin-top: 1rem;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 @keyframes borderTransition {
