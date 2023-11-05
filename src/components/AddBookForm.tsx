@@ -1,19 +1,24 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import PlusButton from "./PlusButton"
-import BookTile from "./BookTile"
+import { BooksContext } from "../App";
 
-const AddBookForm = () => {
+interface AddBookFormProps {
+    cancelStatus: boolean
+}
+
+const AddBookForm: React.FC<AddBookFormProps> = ({cancelStatus}) => {
+    const { addBook } = useContext(BooksContext)
     const [formData, setFormData] = useState(
                                     {name: "", 
                                     author: "",
                                     isRead: "Read",
                                     img: "https://via.placeholder.com/128x192.png?text=Error"
                                     })
-    const [formStatus, setFormStatus] = useState({isSubmit: false, isCancelled: false})
-
-    async function getBookInfo(bookName, authorName) {
+    const [formStatus, setFormStatus] = useState({isSubmit: false, isCancelled: cancelStatus})
+    async function getBookInfo(bookName: string, authorName: string) {
        try { const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${bookName}+inauthor:${authorName}`);
-        const data = await response.json()
+        const data: unknown = await response.json()
+
         if(data.items && data.items.length > 0) {
             const book = data.items[0].volumeInfo;
             const correctedTitle = book.title;
@@ -61,7 +66,6 @@ const AddBookForm = () => {
         getBookInfo(formData.name, formData.author)
         .then((result) => {
             if(result.error) {
-                console.log(result.error)
                 return result.error
             } else {
                 setFormData((prevData) => {
@@ -70,34 +74,23 @@ const AddBookForm = () => {
                         name: result.correctedTitle,
                         author: result.correctedAuthor,
                         img: result.bookImage
-                        }
-                    )
+                    })
                 })
-            }
-        })
-        setFormStatus((prevData => {
-            return({
-                ...prevData,
-                isSubmit: true
+                addBook(result.correctedTitle, result.correctedAuthor, formData.isRead, result.bookImage)
+                }
+                    
+                    setFormStatus((prevData => {
+                        return({
+                            ...prevData,
+                            isSubmit: true
+                            })
+                        }))
             })
-        }))
-    }
+        }
  return (
-    formStatus.isCancelled ? (
-        <PlusButton />
-    )
-    :
-    formStatus.isSubmit ? (
-        <>
-        <BookTile 
-            name={formData.name} 
-            authorName={formData.author}
-            bookImg={formData.img}
-            isRead={formData.isRead}
-        />
-        <PlusButton />
-        </>
-    )
+    formStatus.isCancelled || formStatus.isSubmit 
+    ? 
+    <PlusButton />
     :
     <form action="" className="input-container">
         <input 

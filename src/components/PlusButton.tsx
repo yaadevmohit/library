@@ -9,7 +9,7 @@ const PlusButton = () => {
     return(
         plusClicked 
         ? 
-        <AddBookForm /> 
+        <AddBookForm cancelStatus={false}/> 
         :
         <div className="input-container plus">
             <button className="plus-button" onClick={handleClick}>+</button>

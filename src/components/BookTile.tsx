@@ -1,7 +1,24 @@
+import { useState } from "react"
 import "./styles/book-tile.css"
-const BookTile = ({name, authorName, bookImg, isRead}) => {
 
+interface BookTileProps {
+    name: string;
+    authorName: string;
+    bookImg: string;
+    isRead: string;
+}
 
+const BookTile: React.FC<BookTileProps> = ({name, authorName, bookImg, isRead}) => {
+    const [read, setRead] = useState(isRead)
+
+    function handleRead() {
+        if (read === "Read") {
+            setRead("Not Read")
+        }
+        else if (read === "Not Read") {
+            setRead("Read")
+        }
+    }
     return (
         <>
            <div className="book">
@@ -9,7 +26,7 @@ const BookTile = ({name, authorName, bookImg, isRead}) => {
             <h2 className="book-name">{name}</h2>
             <p className="book-author">{authorName}</p>
             <div className="book-btns">
-                <button className="book-btn status">{isRead}</button>
+                <button className="book-btn status" onClick={handleRead}>{read}</button>
                 <button className="book-btn delete">Remove</button>
             </div>
            </div>
