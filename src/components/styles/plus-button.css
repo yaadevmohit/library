@@ -1,0 +1,19 @@
+.input-container.plus {
+    background-color: transparent;
+    border: none;
+  }
+
+.plus-btn-info {
+    margin-top: 0;
+    color: var(--cool-red);
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+.input-container > button.plus-button {
+    border: none;
+    font-size: 14rem;
+    margin: 0;
+    color: var(--cool-red);
+    font-weight: 800;
+  }

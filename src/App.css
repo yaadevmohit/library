@@ -1,42 +1,38 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: auto;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.main-heading {
+  color: var(--cool-red);
+  font-size: 3rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.abt-heading {
+  color: var(--cool-red);
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.books-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  justify-content: center;
+
+  margin-inline: 1rem;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+button {
+  background-color: transparent;
+  font-size: 1.5rem;
+  border: dotted var(--cool-red);
+  margin-block: 1.5rem;
+  align-self: center;
+  padding: 0;
+  padding-inline: 1rem;
+  transition: border-style 0.3s ease;
+  cursor: pointer;
+  font-weight: 400;
 }

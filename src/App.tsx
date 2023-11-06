@@ -1,34 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { createContext, useState } from 'react'
 import './App.css'
+import BookTile from './components/BookTile'
+import PlusButton from './components/PlusButton'
+
+export const BooksContext = createContext()
+interface Book {
+  name: string;
+  author: string;
+  isRead: string;
+  img: string;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [books, setBooks] = useState<Book[]>([])
+  function addBook(bookName: string, author: string, readStatus: string, bookImg: string) {
+    setBooks((prevBooks) => {
+      return([...prevBooks, {name: bookName, author: author, isRead: readStatus, img: bookImg}])
+    })
+  }
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+  function removeBook(bookName: string) {
+    setBooks(books.filter(book => book.name !== bookName));
+  }
+  return(
+    <BooksContext.Provider value={{books, addBook, removeBook}}>
+      <h1 className='main-heading'>Library</h1>
+      <p className='abt-heading'>Your collection of favourite books.</p>
+      <div className='books-section'>
+        {books.length > 0 && books.map(book => (<BookTile name={book.name} authorName={book.author} bookImg={book.img} isRead={book.isRead} />))}
+        <PlusButton />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </BooksContext.Provider>
   )
 }
 
