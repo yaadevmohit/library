@@ -1,5 +1,6 @@
 import { useState } from "react"
-import AddBookForm from "./addBookForm"
+import AddBookForm from "./AddBookForm"
+import "./styles/plus-button.css"
 
 const PlusButton = () => {
     const [plusClicked, setPlusClicked] = useState(false)

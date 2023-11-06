@@ -23,128 +23,16 @@
 
   margin-inline: 1rem;
 }
-.plus-btn-info {
-  margin-top: 0;
-  color: var(--cool-red);
-  font-weight: 600;
-  font-size: 1.4rem;
-}
-.input-container {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-content: center;
-  border: solid var(--cool-red);
-  padding: 0;
-  background-color: var(--like-skyblue);
-  min-height: 24rem;
-  border-radius: 8px;
-  /* min-width: 20rem; */
-}
-
-.input-container.plus {
-  background-color: transparent;
-  border: none;
-}
-
-
-input, select, button {
-  font-family: "BioRhyme", serif;
-  border-radius: 4px;
-  margin: 0;
-}
-
-.input-container > button.plus-button {
-  border: none;
-  font-size: 14rem;
-  margin: 0;
-  color: var(--cool-red);
-  font-weight: 800;
-}
-
-.input-container > input {
-  background-color: transparent;
-  border: none;
-  border-bottom: solid thin var(--cool-red);
-  font-size: 1.2rem;
-  margin: 0;
-  margin-inline: 1rem;
-  outline: none;
-  transition: all 0.1s ease;
-  margin-block: 1rem;
-}
-
-.input-container > input:focus {
-  border: none;
-  background-color: transparent;
-  border-bottom: solid var(--cool-red);
-}
-
-.input-container > select {
-  margin: 0;
-  border: solid thin var(--cool-red);
-  background-color: transparent;
-  font-size: 1.2rem;
-  width: 7rem;
-  align-self: center;
-}
-
-.input-container > select > option{
-  background-color: transparent;
-}
 
 button {
   background-color: transparent;
   font-size: 1.5rem;
   border: dotted var(--cool-red);
   margin-block: 1.5rem;
-  /* width: 8rem; */
   align-self: center;
   padding: 0;
   padding-inline: 1rem;
   transition: border-style 0.3s ease;
   cursor: pointer;
   font-weight: 400;
-}
-
-.btn-container > button.add-btn {
-  /* margin-bottom: 1rem; */
-  color: #264854ff;
-  margin: 0;
-}
-
-.btn-container > button.add-btn:hover {
-  border-style: solid;
-  animation: borderTransition 0.2s 1;
-}
-
-
-button.cancel-btn {
-  font-size: 1rem;
-  margin: 0;
-  background-color: var(--cool-red);
-  color: white;
-  padding: 0;
-  padding-block: 0.2rem;
-  padding-inline: 0.4rem;
-  margin-top: 1rem;
-}
-
-.btn-container {
-  display: flex;
-  margin-top: 1rem;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-@keyframes borderTransition {
-  0% {
-    border-style: dotted;
-  }
-  50% {
-    border-style: dashed;
-  }
-  75%, 100% {
-    border-style: solid;
-  }
 }

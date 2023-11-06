@@ -1,14 +1,22 @@
 import { useContext, useState } from "react"
 import PlusButton from "./PlusButton"
 import { BooksContext } from "../App";
+import "./styles/book-form.css"
 
 interface AddBookFormProps {
     cancelStatus: boolean
 }
 
+interface FormData {
+    name: string;
+    author: string;
+    isRead: string;
+    img: string;
+}
+
 const AddBookForm: React.FC<AddBookFormProps> = ({cancelStatus}) => {
     const { addBook } = useContext(BooksContext)
-    const [formData, setFormData] = useState(
+    const [formData, setFormData] = useState<FormData>(
                                     {name: "", 
                                     author: "",
                                     isRead: "Read",
