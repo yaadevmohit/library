@@ -36,3 +36,9 @@ p {
   font-size: 1.2rem;
   font-weight: 500;
 }
+
+@media only screen and (max-width: 600px) {
+html {
+  font-size: 8px;
+}
+}

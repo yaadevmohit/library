@@ -36,3 +36,10 @@ button {
   cursor: pointer;
   font-weight: 400;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .books-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
