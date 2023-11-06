@@ -3,7 +3,7 @@ import './App.css'
 import BookTile from './components/BookTile'
 import PlusButton from './components/PlusButton'
 
-export const BooksContext = createContext()
+export const BooksContext = createContext({})
 interface Book {
   name: string;
   author: string;
@@ -13,9 +13,9 @@ interface Book {
 
 function App() {
   const [books, setBooks] = useState<Book[]>([])
-  function addBook(bookName: string, author: string, readStatus: string, bookImg: string) {
+  function addBook(bookName: string, authorName: string, readStatus: string, bookImg: string) {
     setBooks((prevBooks) => {
-      return([...prevBooks, {name: bookName, author: author, isRead: readStatus, img: bookImg}])
+      return([...prevBooks, {name: bookName, author: authorName, isRead: readStatus, img: bookImg}])
     })
   }
 

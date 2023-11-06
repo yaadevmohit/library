@@ -10,8 +10,8 @@ interface BookTileProps {
 }
 
 const BookTile: React.FC<BookTileProps> = ({name, authorName, bookImg, isRead}) => {
-    const { removeBook } = useContext(BooksContext)
-    
+    // @ts-ignore
+    const { removeBook } = useContext(BooksContext) 
     const [read, setRead] = useState(isRead)
     function handleRead() {
         if (read === "Read") {
