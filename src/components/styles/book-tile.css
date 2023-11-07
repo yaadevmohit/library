@@ -4,8 +4,10 @@
     flex-direction: column;
     align-content: center;
     border-radius: 12px;
-    /* position: relative; */
+    background-color: #ffedcbff;
     justify-content: center;
+    margin: 0.5rem;
+    border: solid thin #439fb7ff;
 }
 
 .book-name {
@@ -30,6 +32,7 @@
     align-self: center;
     max-height: 14rem;
     width: auto;
+    height: auto;
 }
 
 .book-btns {
