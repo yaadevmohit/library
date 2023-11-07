@@ -64,4 +64,8 @@ input, select, button {
 html {
   font-size: 12px;
 }
+
+.books-section {
+  flex-direction: column;
+}
 }
