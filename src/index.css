@@ -7,8 +7,7 @@
   --cool-red: rgba(225, 58, 52, 1);
   --like-skyblue: #85d4c9ff;
   --gray: #a9a9b2ff;
-
-  color-scheme: light dark;
+  
   background-color: var(--cool-yellow);
 
   font-synthesis: none;
