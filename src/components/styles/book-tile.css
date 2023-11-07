@@ -4,7 +4,7 @@
     flex-direction: column;
     align-content: center;
     border-radius: 12px;
-    position: relative;
+    /* position: relative; */
     justify-content: center;
 }
 
@@ -25,10 +25,11 @@
 
 .book-img {
     width: 100%;
-    min-width: 12rem;
+    /* min-width: 12rem; */
     border-radius: 8px;
     align-self: center;
-    position: relative;
+    max-height: 14rem;
+    width: auto;
 }
 
 .book-btns {
@@ -41,7 +42,6 @@
     border-radius: 4px;
     border: none;
     margin: 0;
-    /* padding: 0.2rem; */
     font-size: 1rem;
     margin-inline: 0.4rem;
 }
@@ -58,3 +58,17 @@
     background-color: black;
     color: white;
 }
+
+@media only screen and (max-width: 600px) {
+    .book-btns {
+      flex-direction: column;
+    }
+
+    .book-btn{
+        margin-bottom: 0.2rem;
+    }
+
+    .book-btn.delete, .book-btn.status {
+        width: 90px;
+    }
+    }
