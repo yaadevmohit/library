@@ -1,5 +1,6 @@
 .book {
     padding: 1rem;
+    padding-inline: 2rem;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -26,13 +27,12 @@
 }
 
 .book-img {
-    width: 100%;
-    /* min-width: 12rem; */
     border-radius: 8px;
     align-self: center;
-    max-height: 14rem;
-    width: auto;
-    height: auto;
+    /* max-height: 14rem; */
+    width: 240px;
+    height: 338px;
+    display: block;
 }
 
 .book-btns {
