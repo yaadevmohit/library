@@ -1,6 +1,6 @@
 .book {
     padding: 1rem;
-    padding-inline: 2rem;
+    padding-inline: auto;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -29,7 +29,6 @@
 .book-img {
     border-radius: 8px;
     align-self: center;
-    /* max-height: 14rem; */
     width: 240px;
     height: 338px;
     display: block;

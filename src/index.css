@@ -4,9 +4,10 @@
   /* font-weight: 400; */
 
   --cool-yellow: #f6d549ff;
-  --cool-red: rgba(225, 58, 52, 1);
+  --cool-red: rgb(199, 65, 61);
   --like-skyblue: #85d4c9ff;
   --gray: #a9a9b2ff;
+  --blackish-red: rgb(143, 45, 42);
   
   background-color: var(--cool-yellow);
 
@@ -33,7 +34,7 @@ h1 {
 p {
   margin-top: 0;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 @media only screen and (max-width: 600px) {
