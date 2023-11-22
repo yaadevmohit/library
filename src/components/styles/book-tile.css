@@ -1,11 +1,14 @@
 .book {
     padding: 1rem;
+    padding-inline: auto;
     display: flex;
     flex-direction: column;
     align-content: center;
     border-radius: 12px;
-    position: relative;
+    background-color: #ffedcbff;
     justify-content: center;
+    margin: 0.5rem;
+    border: solid thin #439fb7ff;
 }
 
 .book-name {
@@ -24,11 +27,11 @@
 }
 
 .book-img {
-    width: 100%;
-    min-width: 12rem;
     border-radius: 8px;
     align-self: center;
-    position: relative;
+    width: 240px;
+    height: 338px;
+    display: block;
 }
 
 .book-btns {
@@ -41,7 +44,6 @@
     border-radius: 4px;
     border: none;
     margin: 0;
-    /* padding: 0.2rem; */
     font-size: 1rem;
     margin-inline: 0.4rem;
 }
@@ -58,3 +60,18 @@
     background-color: black;
     color: white;
 }
+
+@media only screen and (max-width: 600px) {
+    .book-btns {
+      flex-direction: column;
+    }
+
+    .book-btn{
+        margin-block: 0.2rem;
+    }
+
+    .book-btn.delete, .book-btn.status {
+        width: 90px;
+        font-size: 1.2rem;
+    }
+    }

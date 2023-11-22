@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: auto;
   text-align: center;
 }
@@ -10,19 +10,22 @@
 }
 
 .abt-heading {
-  color: var(--cool-red);
+  color: var(--blackish-red);
   font-size: 1.4rem;
   font-weight: 500;
 }
 
 .books-section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  display: flex;
+  flex-flow: row wrap;
   justify-content: center;
-
-  margin-inline: 1rem;
+  align-items: center;
+  /* margin-inline: 1rem;
+  margin */
 }
+
+
+
 
 button {
   background-color: transparent;
@@ -35,4 +38,34 @@ button {
   transition: border-style 0.3s ease;
   cursor: pointer;
   font-weight: 400;
+}
+
+
+input, select, button {
+  font-family: "BioRhyme", serif;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.input-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-content: center;
+  border: solid var(--cool-red);
+  padding: 0;
+  background-color: var(--like-skyblue);
+  min-height: 24rem;
+  border-radius: 8px;
+  /* min-width: 20rem; */
+}  
+
+@media only screen and (max-width: 600px) {
+html {
+  font-size: 12px;
+}
+
+.books-section {
+  flex-direction: column;
+}
 }

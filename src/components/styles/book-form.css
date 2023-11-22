@@ -1,21 +1,3 @@
-input, select, button {
-    font-family: "BioRhyme", serif;
-    border-radius: 4px;
-    margin: 0;
-  }
-  .input-container {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-content: center;
-    border: solid var(--cool-red);
-    padding: 0;
-    background-color: var(--like-skyblue);
-    min-height: 24rem;
-    border-radius: 8px;
-    /* min-width: 20rem; */
-  }  
-  
   .input-container > input {
     background-color: transparent;
     border: none;
@@ -90,3 +72,4 @@ input, select, button {
     }
   }
   
+ 

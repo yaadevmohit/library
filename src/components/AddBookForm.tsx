@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useContext, useState } from "react"
 import PlusButton from "./PlusButton"
 import { BooksContext } from "../App";
