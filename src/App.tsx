@@ -4,7 +4,7 @@ import BookTile from './components/BookTile'
 import PlusButton from './components/PlusButton'
 
 export const BooksContext = createContext({})
-interface Book {
+export interface Book {
   name: string;
   author: string;
   isRead: string;

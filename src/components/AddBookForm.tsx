@@ -1,8 +1,9 @@
-// @ts-nocheck
+
 import { useContext, useState } from "react"
 import PlusButton from "./PlusButton"
 import { BooksContext } from "../App";
 import "./styles/book-form.css"
+import axios from "axios";
 
 interface AddBookFormProps {
     cancelStatus: boolean
@@ -15,18 +16,49 @@ interface FormData {
     img: string;
 }
 
+interface ImageLinks {
+    smallThumbnail: string;
+    thumbnail: string;
+}
+
+interface VolumeInfo {
+    title: string;
+    authors: string[];
+    imageLinks: ImageLinks;
+    [key: string]: unknown;
+}
+interface BookItem {
+    kind: string;
+    id: string;
+    etag: string;
+    selfLink: string;
+    volumeInfo: VolumeInfo;
+}
+
+interface Data {
+    kind: string;
+    totalItems: number;
+    items: BookItem[];
+}
+
+
 const AddBookForm: React.FC<AddBookFormProps> = ({cancelStatus}) => {
+    
+    // All the states for book content, form content and form status to show the plus sign
     const { addBook } = useContext(BooksContext)
     const [formData, setFormData] = useState<FormData>(
                                     {name: "", 
                                     author: "",
                                     isRead: "Read",
-                                    img: "https://via.placeholder.com/128x192.png?text=Error"
+                                    img: "https://via.placeholder.com/128x192.png?text='img not found'"
                                     })
-    const [formStatus, setFormStatus] = useState({isSubmit: false, isCancelled: cancelStatus})
+    const [formStatus, setFormStatus] = useState({isSubmitted: false, isCancelled: cancelStatus})
+
+    // getting data from books api
     async function getBookInfo(bookName: string, authorName: string) {
-       try { const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${bookName}+inauthor:${authorName}`);
-        const data: unknown = await response.json()
+       try { 
+        const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${bookName}+inauthor:${authorName}`);
+        const data: Data = await response.json()
 
         if(data.items && data.items.length > 0) {
             const book = data.items[0].volumeInfo;
@@ -49,7 +81,9 @@ const AddBookForm: React.FC<AddBookFormProps> = ({cancelStatus}) => {
             }
         }
     }
-    function handleCancel(e) {
+
+    // changes formStatus state
+    function handleCancel(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         e.preventDefault()
 
         setFormStatus(prevStatus => {
@@ -60,7 +94,7 @@ const AddBookForm: React.FC<AddBookFormProps> = ({cancelStatus}) => {
         })
     }
     
-    const handleInputChange = (event) => {
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { id, value } = event.target
 		setFormData((prevData) => {
 			return {
@@ -70,14 +104,21 @@ const AddBookForm: React.FC<AddBookFormProps> = ({cancelStatus}) => {
 		})
 	}
 
-    const handleSumbit = (e) => {
+    const validateBookName = (bookName: string) => {
+        const bookNameRegex = /^[a-zA-Z0-9\s,'".!?()-]+$/;
+        return bookNameRegex.test(bookName);
+    }
+
+    const handleSumbit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
+        validateBookName(formData.name) 
+        && 
         getBookInfo(formData.name, formData.author)
         .then((result) => {
             if(result.error) {
-                return result.error
+                addBook(formData.name, formData.author, formData.isRead, formData.img)
             } else {
-                setFormData((prevData) => {
+                setFormData(prevData => {
                     return (
                         {...prevData,
                         name: result.correctedTitle,
@@ -91,30 +132,37 @@ const AddBookForm: React.FC<AddBookFormProps> = ({cancelStatus}) => {
                     setFormStatus((prevData => {
                         return({
                             ...prevData,
-                            isSubmit: true
+                            isSubmitted: true
                             })
-                        }))
-            })
+                    }))
+            }
+        )
         }
  return (
-    formStatus.isCancelled || formStatus.isSubmit 
+    formStatus.isCancelled || formStatus.isSubmitted 
     ? 
     <PlusButton />
     :
     <form action="" className="input-container">
-        <input 
-            type="text" 
-            placeholder="Enter Book name" 
-            onChange={handleInputChange} 
-            id="name" 
-            value={formData.name}/>
-        <input 
-            type="text" 
-            placeholder="Enter Author name" 
-            onChange={handleInputChange} 
-            id="author" 
-            value={formData.author}
-        />
+        <div className="input-field">
+            <input 
+                type="text" 
+                placeholder="Enter Book name" 
+                onChange={handleInputChange} 
+                id="name" 
+                value={formData.name}
+            />
+            {!validateBookName(formData.name) && <span>needs a book name</span>}
+        </div> 
+        <div className="input-field">   
+            <input 
+                type="text" 
+                placeholder="Enter Author name" 
+                onChange={handleInputChange} 
+                id="author" 
+                value={formData.author}
+            />
+        </div>
         <select name="is-read" id="isRead" onChange={handleInputChange}>
             <option value="Read">Read</option>
             <option value="Not Read">Not Read</option>

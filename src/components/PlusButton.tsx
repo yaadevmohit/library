@@ -1,10 +1,12 @@
-// @ts-nocheck
 import { useContext, useState } from "react"
 import AddBookForm from "./AddBookForm"
 import "./styles/plus-button.css"
-import { BooksContext } from "../App"
+import { BooksContext, Book } from "../App"
+
+
+
 const PlusButton = () => {
-    const { books } = useContext(BooksContext)
+    const { books }: {books: Book[]} = useContext(BooksContext)
     const [plusClicked, setPlusClicked] = useState(false)
     function handleClick() {
         setPlusClicked(prevState => !prevState)
